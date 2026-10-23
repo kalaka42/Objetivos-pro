@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10121a">
+  <meta name="description" content="Organiza tus objetivos y avanza un paso a la vez.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>Objetivos — Tu progreso</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark">✓</div>
+      <div><p class="eyebrow">TU ESPACIO PERSONAL</p><h1>Objetivos<span>.</span></h1></div>
+      <button id="themeBadge" class="icon-button" aria-label="Diseño oscuro">☾</button>
+    </header>
+
+    <section class="welcome">
+      <p class="eyebrow">UN PASO A LA VEZ</p>
+      <h2>Haz que cuente.</h2>
+      <p class="muted">Cada pequeño avance te acerca a tu meta.</p>
+    </section>
+
+    <section class="stats-grid" aria-label="Resumen de progreso">
+      <article class="stat-card featured">
+        <span class="stat-label">Progreso total</span>
+        <strong id="totalProgress">0<span> / 0</span></strong>
+        <div class="progress-track"><div id="overallBar" class="progress-fill" style="width:0%"></div></div>
+        <small id="overallPercent">0% completado</small>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Metas logradas</span>
+        <strong id="completedGoals">0 <span>/ 0</span></strong>
+        <small>objetivos terminados</small>
+      </article>
+    </section>
+
+    <section class="section-heading">
+      <div><p class="eyebrow">TU LISTA</p><h2>Mis objetivos</h2></div>
+      <select id="filter" aria-label="Filtrar objetivos">
+        <option value="all">Todos</option><option value="active">Pendientes</option><option value="done">Logrados</option>
+      </select>
+    </section>
+
+    <section id="goalList" class="goal-list" aria-live="polite"></section>
+    <section id="emptyState" class="empty-state hidden">
+      <div class="empty-icon">◎</div><h3>Tu siguiente logro empieza aquí</h3>
+      <p>Añade un objetivo y registra cada avance con un toque.</p>
+      <button class="primary-button" id="emptyAdd">＋ Crear objetivo</button>
+    </section>
+
+    <button class="add-fab" id="openModal" aria-label="Añadir objetivo">＋ <span>Nuevo objetivo</span></button>
+    <footer><span>Hecho a tu ritmo.</span><span id="saveStatus">Guardado en este dispositivo</span></footer>
+  </main>
+
+  <dialog id="goalDialog">
+    <form id="goalForm" method="dialog">
+      <div class="modal-head"><div><p class="eyebrow">NUEVA META</p><h2>¿Qué quieres lograr?</h2></div><button type="button" class="icon-button" id="closeModal" aria-label="Cerrar">×</button></div>
+      <label for="goalName">Nombre del objetivo</label>
+      <input id="goalName" name="goalName" maxlength="70" placeholder="Ej. Leer 10 páginas" required>
+      <label for="goalTarget">Número de veces o pasos</label>
+      <input id="goalTarget" name="goalTarget" type="number" min="1" max="100000" value="10" required>
+      <p class="form-hint">Puedes editar el progreso después de crear la meta.</p>
+      <button class="primary-button full" type="submit">Crear objetivo <span>→</span></button>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>

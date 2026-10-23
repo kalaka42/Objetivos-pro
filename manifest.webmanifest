@@ -1,0 +1,14 @@
+{
+  "name": "Objetivos — Tu progreso",
+  "short_name": "Objetivos",
+  "description": "Organiza tus objetivos y avanza un paso a la vez.",
+  "lang": "es-MX",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10121a",
+  "theme_color": "#10121a",
+  "icons": [
+    {"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
